@@ -42,6 +42,9 @@ source.complete = function(self, params, callback)
   if not dirname then
     return callback()
   end
+  if dirname == "/home" then
+    return callback()
+  end
 
   local include_hidden = string.sub(params.context.cursor_before_line, params.offset, params.offset) == '.'
   self:_candidates(dirname, include_hidden, option, function(err, candidates)
